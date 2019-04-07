@@ -13,5 +13,5 @@ Pros :
 
 Cons :
 
-* Some of the intuition explanations are too brief and confusing (e.g. Multi-arm bandit problem ...)
+* Some of the intuition explanations are too brief or not well explained (e.g. Multi-arm bandit problem ...)
 * The coding sections assume near-zero Python knowledge hence a bit too basic and draggy
