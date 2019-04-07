@@ -1,0 +1,33 @@
+Neural networks - learning algorithm
+why do we need it over linear/logistic regression
+
+for most machine learning problems, n is quite large
+too many features to do non-linear regression (e.g. polynomial combination of each features to do non-linear, multi-million features)
+
+e.g. 50x50 pixel images, 2,500 pixels
+2,500 features! per training example.
+Quadratic features ~ 3 million features
+Quadratic = x1 * x2, (~n^2)/2 features
+
+
+pretty old! motivated by mimicking the brain
+
+Neuron model : logistic unit
+hypothesis function in ANN => sigmoid (logistic) activation function = 
+Parameters : weights in ANN
+
+Input layer (features) => Hidden layer => Output layer (output)
+
+ai(j) = activation of unit i in layer j
+T(j) = matrix of weights controlling function mapping from layer j to j+1
+
+T(j) dimension = s(j+1) x s(j) + 1
+where s(j) is no. of neurons at layer j
+e.g. 2 features => 4 neurons => 1 output
+T(1) = 4 x 3 matrix of weights
+though hidden layer, neural network learns its own features
+
+Non-linear classification example : XOR/XNOR
+e.g. -30 + 20x1 + 20x2 is an AND function
+-10 + 20x1 + 20x1 is an OR function
+Negation : put large negative weight in front of feature ..?

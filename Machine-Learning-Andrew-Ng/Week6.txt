@@ -1,0 +1,45 @@
+Advice for applying machine learning - deciding what to try next 
+
+E.g. after implementation of regularized linear regression, and testing against new set of houses, you find unacceptably large errors in its predictions
+- get more training examples
+- try smaller sets of features
+- try additional features
+- try adding polynomial features
+- try decreasing/increasing lambda
+
+diagnostics can take time to implement, but doing so can be a very good use of your time
+
+Split training examples into training set (70%) and test set (30%)
+Training/testing procedure for linear regression
+- learn parameter theta from training data
+- compute test set error
+
+Training/testing procedure for logistic regression
+- learn parameter theta from training data
+- compute test set error
+- misclassification error 
+
+Model selection
+e.g. numerate all the degrees of polynomial and compute theta, and compute cost. Pick the degree with lowest test set error.
+- since the degree is chosen based on lowest test set error, would be biased to use test set error as indication of generalization capability
+
+Split training examples into training set (60%), cross-validation set (20%) and test set (20%)
+- instead, pick the degree with lowest cross validation error
+- generalization capability indicated by test set error
+
+Diagnosing bias vs variance
+- plot d (dimensionality) against Jcv and Jtest, to find best d
+if training error + CV error is high = high bias (underfit, degree too low) = should increase degree
+if training error is low but CV error is high = high variance (overfit, degree too high) = should reduce degee
+
+Regularization and bias/variance
+- plot lambda against Jcv and Jtest, to find best lambda
+high lambda = high bias (underfit) = should reduce lambda
+small lambda = high variance (overfit) = should increase lambda
+
+when computing Jcv or Jtest, don't use regularization. Jtrain uses regularization
+
+Learning curves
+- plot m (no. of training examples) against Jcv and Jtrain
+- if a learning algorithm is sufferring from high bias, getting more training data will not help much
+- if a learning algorithm is sufferring from high variance, getting more training data is likely to help

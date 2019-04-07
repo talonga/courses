@@ -1,0 +1,34 @@
+Problem Description and Pipeline
+
+OCR - optical character recognition, from documents
+Photo OCR pipeline
+- image
+- text detection
+- character segmentation
+- character classification
+
+Sliding Windows
+supervised learning for pedestrian detection
+aspect ratio of person is always similar, e.g. use 82 x 36 pixels image
+
+scan the image using 82 x 36 pixel and shift (sliding window) by step size / stride parameter
+
+can also scale up the shape, then shrink down to 82 x 36 pixel and match
+
+text detection
+- e.g. for text, sliding window across the image to find things that look like text. then expand the found images, to find the 'sentence'
+
+character segmentation
+- scan down the text, using split between characters as positive examples, identifying the split and split into separate chars
+
+character classification
+- finally classify the standalone text image 
+
+Getting lots of data - artificial data
+e.g. for alphabet, generate fonts against random backgrounds
+or synthesize data by introducing distortions
+
+discussion on getting more data - how much work to get 10x as much data?
+
+Ceiling analysis : what part of the pipeline to work on next
+estimate the errors due to each component (ceiling analysis)

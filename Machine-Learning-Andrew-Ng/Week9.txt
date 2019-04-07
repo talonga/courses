@@ -1,0 +1,89 @@
+Anomaly detection
+density estimation : based on model p(x)
+
+p(xtest) < epsilon -> flag anomaly
+else ok
+
+fraud detection :
+xi = features of users i's activities
+model p(x) from data
+identify unusual users by checking which have p(x) < epsilon
+
+monitoring computers in a datacenter :
+xi = features of machine i, x1 = memory use, x2 = number of disk accesses etc.
+if p(xtest) is very smaller then anomalous
+
+Gaussian (normal) distribution
+x ~ N(mu, sigma^2)
+mu = mean
+sigma = standard deviation
+sigma^2 = variance
+
+Anomaly detection algorithm
+- choose features xi that you think might be indicative of anomalous examples
+- compute parameters mu and sigma^2 over training set
+- given new example, compute p(x)
+
+Developing and evaluating an anomaly detection system
+Fit model to only good examples
+y = 1 (anomaly) if p(x) < epsilon
+
+good evaluation metrics (0 is very skewed) :-
+- F1 score
+- precision / recall
+- use cross validation set to choose parameter epsilon
+
+anomaly detection - very small number of positive examples, large number of negative examples
+- hard for algorithm to learn from positive examples what anomalies look like
+- fraud detection, manufacturing, monitoring machines
+supervised learning - large number of positive and negative examples
+- email spam, weather prediction, cancer classification
+
+choosing what features to use
+non-gaussian features - plot a histogram, transform x into gaussian-like features
+
+if anomalous example has high p(x), look at example in particular to find new feature to identify anomaly
+
+choose features that take on unusually large or small values in the event of an anomaly
+
+
+Multivariate Gaussian Distribution
+- don't model p(x1), p(x2) separately, model it in one go
+
+Original model  - manually create featurest to capture anomalies where x1, x2 take unusual combinations of values
+- computationally cheaper, alternatively scales better to large n
+- ok even if m (training set) is small
+
+Multivariate Gaussian - automatically captures correlations between features
+- computationally more expensive
+- m >>> n, else sigma is non-invertible
+
+Recommender systems
+Content-based recommendations - based on features of the movie
+use r(i,j) = 1 if user j has rated movie i
+y(i,j) for the rating
+use techniques to fill in gaps for movies not watched e.g. linear regression
+features of the movie e.g. action or romance type
+
+to learn thetaj, parameter for user j based on j's ratings - "preferences"
+to learn theta across all users (minimize summation over all users)
+
+Collaborative Filtering
+no features of the movies, but what if we have theta of each user (i.e. preferences)
+e.g. what feature vector should x1 be, such that theta1 T x1 ~ 5
+
+Optimization algorithm
+given theta, to learn x 
+Guess theta, learn x -> optimize theta -> optimize x etc.
+
+Minimizing x and theta simultaneously
+=
+Low rank matrix factorization
+Y = X * thetaT where X is a matrix of features per 'user'
+
+use learnt features to find related movies
+small ||xi - xj|| -> movie j and i are "similar"
+
+Mean normalization
+subtract each value in matrix Y with it's mean
+after running collaborative filtering, add back the mean

@@ -1,0 +1,36 @@
+Learning with Large Datasets
+
+stochastic gradient descent
+cost = 1/2 h(x) - y ^2
+Jtrain = 1/2 sum(cost)
+
+1. randomly shuffle training examples
+2. repeat gradient descent only, incrementally refine theta after every pass of training examples instead of summing error from all examples
+
+mini-batch gradient descent
+batch gradient descent : use all m examples in each iteration
+stochastic gradient descent : use 1 example in each iteration
+mini-batch gradient descent : use b examples in each iteration
+
+stochastic gradient descent convergence
+plot cost averaged over the last x (e.g 1000) examples to see the average cost is actually going down
+
+alternatively can slowly decrease alpha over time
+
+Online learning
+E.g. capture properties of user, of origin/destination and asking price. Learn p(y=1|x;theta) to optimize price
+
+repeat forever - get (x, y) to user and update theta
+-> can adapt to changing user preference
+
+E.g. user searches for phone
+x -> features of phone, how many words in user query match name of phone, y = 1 if user clicks on link.
+use to show user 10 phones they're most likely to click on
+
+Map-reduce
+say 400 examples, batches of 100
+send to 4 machines to compute partial, then combine
+
+many learning algorithms can be expressed as computing sums of functions over the training set
+
+Can do the same with multi-core machines

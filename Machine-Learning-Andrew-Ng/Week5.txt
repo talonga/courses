@@ -1,0 +1,49 @@
+J = cost junction
+L = no. of layers (lth layer)
+s = no. of units, not counting bias unit
+m = no. of training examples (ith example)
+n = no. of parameters (jth parameter)
+K = no. of output units, no. of classes (kth output)
+x = input
+y = output
+a = activation output, hidden layer
+lambda = regularization parameter
+E (epsilon) = gradient checking parameter
+alpha = training rate
+T (theta) = parameter (vector/matrix)
+d = ?
+D = ?
+
+Neural networks - back propagation
+
+d4 = a4 - y
+d3 = (T3)' * d4 .* g'(z3)
+d2 = (T2)' * d3 .* g'(z2)
+
+When computing a4 which is h(x), compute delta or error of a4 - y, then compute d3 and d2 backwards
+
+Output Dvec is efficient way of computing gradient
+
+Unrolling matrices into vectors
+
+Theta1, 2, 3 is a matrix of parameters
+To place them into a vector for usage in advanced optimization algorithms, use this command :-
+
+thetaVec = [Theta1(:); Theta2(:); Theta3(:)]
+
+To shape back to matrix,
+
+Theta1 = reshape(thetaVec(1:110), 10, 11);
+
+Gradient checking
+Approximate the gradient by using
+J(T + E) - J(T - E) / 2E is approximately the gradient or derivative. Accurate (approximate) but computationally expensive.
+
+Enable gradient checking, and compare gradApprox against Dvec computed by backprop. Then turn off gradient checking, using backprop code for learning.
+
+Random initialization
+- set initialTheta = zeros(n, 1) ? No, for neural network, as this causes all the activation neurons to output the same function
+
+Symmetry breaking : initialize each T to a random value between E and -E
+
+Reasonable default : 1 hidden layer, or if > hidden layer, have same no. of hidden units in every layer (usually the more the better)

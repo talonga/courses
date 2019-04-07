@@ -1,0 +1,75 @@
+Unsupervised learning
+
+Clustering - K-means algorithm most popular
+create cluster centroids - to group into 2 clusters
+iterative algorithm
+
+1) mark each point closest to the centroid
+2) compute average of marked points and reposition centroid
+
+Optimization objective
+distortion cost function :
+J(c ... x ...) =
+	1/m * sum(1 to m) || xi - mu(ci) || ^ 2
+m is number of training examples
+xi is ith training example
+ci is cluster assigned to xi (nearest cluster)
+mu(ci) is cluster centroid of ci
+
+K-means algorithm
+- random initialization should have K < m
+- randomly pick K training examples and set them as centroids
+- repeat 1 to 100 and pick clustering the give lowest cost
+
+Choosing the number of clusters
+- pick lowest K against cost function (elbow method)
+- sometimes, to get clusters to use for some later purposes, then evaluate K-means based on a metric for how well it performs for that purpose
+
+Dimensionality Reduction
+data compression
+data visualization -> reduce dimensions to plot
+
+Principal Component Analysis (PCA)
+- perform feature scaling first
+- reduce dimension by finding points/vectors which minimize projection error
+- not linear regression! linear regression minimizes 'vertical' distance while PCA minizmies 'orthogonal' distance
+
+mean normalization :
+replace each x with x - mu (mean)
+reduce data from n-dimensions to k-dimensions
+compute covariance matrix :
+- Sigma = 1/m sum (i=1 to n) xi * xiT
+compute eigenvectors of matrix sigma :
+- Sigma - xi * xiT is a n x n matrix 
+- svd = singular value decomposition
+- [u, s, v] = svd(Sigma) or eig(Sigma)
+- u is a n x n matrix, to pick k-dimensions pick the first k vectors = ureduce
+- z = ureduce' * x;
+
+reconstruction from compressed representation
+- x = ureduce * z;
+
+choosing the number of principal components
+average squared projection error :
+	1/m * sum(1 to m) || xi - xapprox(i) || ^ 2
+total variation in data :
+	1/m * sum(1 to m) || xi || ^ 2
+	
+choose k where
+	average squared projection error /
+	total variation <= 1% or 5%
+where 99% or 95% of variance is retained
+
+or
+using [u, s, v] = svd(Sigma)
+1 - (sum(1 to k) Sii / sum(1 to n) Sii) <= 1%
+
+Advice for applying PCA
+supervised learning speedup
+- extract inputs x1 .. xm e.g. 10,000 dimensions
+- computed z1 .. zm e.g. 1,000 dimensions
+mapping x -> z (i.e. u) should be computed only from training set.
+- compression : reduce memory/disk needed to store data, speed up learning algorithm
+- visualization - use k = 2 or 3 to plot
+- misuse! to prevent overfitting to reduce number of features => not a good way, use regularization instead
+- train the ML system without PCA first. only if that doesn't do what you want, then implement PCA and consider using zi

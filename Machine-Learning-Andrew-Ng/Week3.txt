@@ -1,0 +1,79 @@
+Classifications
+Logistic Regression
+
+Email : Spam / not spam?
+Transactions : Fraudulent yes/no
+Tumor : Malignant / Benign
+{0, 1}
+
+e.g. threshold classifier output 
+h(x) > 0.5 then y = 1 else y = 0
+
+Hypothesis representation
+Sigmoid function
+h(x) = g(T'x) = g(z) = 1/1+e^-z
+h(x) is estimated probability that y = 1 on input x
+h(x) = P(y=1 | x;T)
+probably that y = 1, given x, parameterized by T
+
+Decision Boundary
+h(x) > 0.5 is the same as g(x) > 0 and vice versa
+
+Non-linear decision boundaries
+Logistic regression cost function
+Cost(h(x), y) = log(h(x)) if y = 1
+				-log(1-h(x)) if y = 0 
+
+Note that y is always equals to 0 or 1
+Cost(h(x), y) = -y log(h(x)) - (1-y)log(1-h(x))
+
+So total cost : J(T) = -1/m (sum over m (samples) of Cost(h(x), y))
+
+To get minimum of total cost (maximum convergence of the hypothesis/prediction between h(x) and y), adjust theta continuously using gradient descent
+
+T = T - alpha * sum over m of (h(x) - y)*x
+
+With every iteration of theta, re-compute total cost J(T) and ensure J(T) is reducing
+
+Advanced Optimization
+J(T) - cost function
+derivative of J(T) - gradient descent
+Conjugate gradient
+BFGS
+L-BFGS - more sophisticated strategies to optimize J(T)
+no need to manually pick alpha, and often faster than gradient descent, but more complex
+-> clever inner loop can pick different learning rate for every iteration
+
+fminunc() - minimizing function unconstrained
+
+Multi-class classification
+one-vs-all algorithm
+split multi-class classification problem into separate binary classification problems
+
+pick the h(x) that is most confident
+
+Regularization - problem of overfitting
+underfit - high bias
+overfit - high variance
+learned hypothesis may fit the training set very well, but fail to generalize to new examples
+
+options
+1. reduce number of features, manually select which features to keep or model selection algorithm
+. but throwing away features that could be useful to the problem
+2. regularization, keep all the features but reduce magnitude/values of parameters theta. works well when we have a lot of features, each of which contributes a bit to predicting y
+
+J(T) = 1/m (sum over m (samples) of h(x)-y)^2  + 1000*T3^2 + 1000*T4^2 => this forces T3 and T4 to be very small, reducing their effect
+or 
+J(T) = 1/m (sum over m (samples) of h(x)-y)^2  + lambda(sum over n Tj^2)
+
+m = no. of samples
+n = no. of features
+lambda = regularization parameter
+
+Regularized linear regression
+Gradient descent
+
+T = T - alpha * (sum over m (samples) of h(x)-y)*x + lambda/m * T
+
+Regularized logistic regression
+

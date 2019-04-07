@@ -1,0 +1,77 @@
+Supervised Learning
+- regression : predict results within a continuous output
+	- map input to a continuous function
+- classification : predict results in a discrete output
+	- map input into discrete categories
+	
+Unsupervised Learning
+- clustering algorithms, as we are not telling the algorithm what the right answer is
+- e.g. computing clusters, circles of friends, market segmentation, Google news
+
+Model Representation
+Univariate linear regression
+h(x) = T0 + T1x
+T0 and T1 are parameters
+purpose of h(x) is predict outcome based on x
+y is known output
+
+Cost Function
+solve a minimization problem
+minimize T0 and T1
+m is training size
+Cost function J(T0, T1) = 1/2m * SUM(h(x) - y)^2
+minimize T0, T1 as the cost function (squared error function)
+
+Squared error cost function most commonly used for linear regression, works well
+
+Gradient descent
+
+update 
+T0 = T0 - alpha * derivative of J(T0, T1)
+derivative of J(T0, T1) is the tangential of the function J
+
+Moves the value of T1 to the local optima / minima
+if alpha is too small, gradient descent can take very long to converge to the minimum
+if alpha is too large, gradient descent can overshoot the minimum, may fail to converge or even diverge
+
+Cost function + gradient descent
+= Algorithm for linear regression
+
+Linear regression will always be a bowl-shaped or convex function, so won't be susceptible for local optima issue
+
+"Batch" gradient descent, each step uses all the training examples, as the cost function uses the SUM of all m examples
+
+Other types of gradient descent uses subset of training examples
+
+Linear Algebra
+Matrix - 2 dimension arrays = rows x columns
+Vector - nx1 matrix
+
+Matrix addition
+add the individual elements together, output is matrix of the same size
+
+Scalar multiplication
+multiply the scalar into each element of the matrix
+
+Matrix multiplication
+E.g. 3x2 matrix * 2x1 vector = 3x1 vector
+
+Writing vector multiplication for multiple predications is 
+1) simpler code as one line versus a loop
+2) most languages is actually more efficient
+
+Commutative property of normal multiplication means that you can reverse ordering of multiplication
+
+Matrix multiplication is not commutative
+
+Associative property of normal multiplication means that you can do multiplication in any order
+
+Matrix multiplication is associative
+
+Identity matrix is a special matrix where A*I = I*A = A
+1s along the diagonal
+
+Matrix inverse is where A * A_inverse = I
+e.g. 3 * 1/3 = 1
+Only square matrices have inverse i.e. m x m matrices
+Matrices that don't have an inverse are singular or degenerate
