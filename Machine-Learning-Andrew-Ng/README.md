@@ -1,4 +1,4 @@
-Machine Learning by Standard
+Machine Learning by Stanford
 
 Link : https://www.coursera.org/learn/machine-learning/
 
