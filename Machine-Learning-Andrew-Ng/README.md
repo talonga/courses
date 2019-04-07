@@ -1,6 +1,8 @@
-# Machine-Learning-Andrew-Ng
+Machine Learning by Stanford
 
-This was the first Machine Learning course I took out of University - it is commonly referred to as one of the better courses to get an introduction into Machine Learning.
+Link : https://www.coursera.org/learn/machine-learning/
+
+This was the first Machine Learning course since university - it is commonly referred to as one of the better courses to get an introduction into Machine Learning.
 
 Pros :
 * overview of math for every type of algorithm or technique, really helps in understanding how things work
