@@ -99,3 +99,25 @@ Multi-layer neural networks
   * Full Connection - Create as many layers of neural networks that are fully connected from flattened layer to output layer
   * Using softmax (improves interpretability of output probability) together with cross entropy cost function
   * Using keras.preprocessing.image.ImageDataGenerator to load and automatically pre-process images into the network
+  
+<h2>Part 9 - Dimensionality Reduction</h2>
+
+Reducing dimensions of input data
+* Principal Component Analysis (PCA) using sklearn.discriminant_analysis.PCA
+ * Unsupervised algorithm to extract number of principal components that optimally describe cross-covariance of data
+* Linear Discriminant Analysis (LDA) using sklearn.discriminant_analysis.LinearDiscriminantAnalysis
+ * Supervised algorithm to extract number of principal components that maximum class separation
+* Kernal PCA using sklearn.discriminant_analysis.KernelPCA
+ * Unsupervised algorithm that uses kernel function to project input to higher dimensions, before running PCA for principal component extraction
+
+<h2>Part 10 - Model Selection & Boosting</h2>
+
+Methods to select appropriate model
+* K-Fold Cross Validation using sklearn.model_selection.cross_val_score
+ * Splits train and test set automatically across k number of sets to aggregate the accuracy score
+* Grid Search using sklearn.model_selection.GridSearchCV
+ * Provides a list of training parameters which GridSearch will iterate - useful in deciding between linear or non-linear options
+
+Boosting
+* XGBoost using xgboost.XGBClassifier - very popular implementation of gradient boosted decision trees with (1) high performance (2) fast execution speed (3) keep interpreration of model, no scaling required
+ * Boosting is an algorithm by which a model is built, then a second model is added that attempts to correct the errors from the first model. Models are added until no further improvement can be made, or maximum no. of models are reached.
