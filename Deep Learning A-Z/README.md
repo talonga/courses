@@ -7,3 +7,5 @@ Link : https://www.udemy.com/deeplearning/learn/v4/overview
 <h2>Part 1 - ANN</h2>
 
 * Using keras.wrappers.scikit_learn.KerasClassifier as a scikit-learn wrapper, to run k-fold cross validation using keras models
+* Using keras.layers.Dropout for dropout regularization, to solve overfitting
+  * Dropout is a technique which randomly 'drops' several neurons in a particular ANN layer, which makes the network less reliant on specific weights
