@@ -18,4 +18,16 @@ Link : https://www.udemy.com/deeplearning/learn/v4/overview
 
 <h2>Part 3 - Recurrent Neural Networks</h2>
 
-Concept of using a neural networks connected to itself via time steps.
+Concept of using a neural networks connected to itself via time steps. Good for regression of time series as RNN will retain contextual knowledge of past timesteps to predict values of next timestep
+
+* Using sklearn.preprocessing.MinMaxScaler, normalization feature scaling better for RNN especially if there is sigmoid function
+* Using keras.layers.LSTM for LSTM layers
+
+<h2>Part 4 - Self Organizing Maps</h2>
+
+Unsupervised deep learnig used for feature detection. Using input data, weights are assigned in fully connected neural network. By checking MSE of weights to each input data, for each unit, find BMU (best matching unit) and updates weights to move it closer to input data. Update units within radius as well, to be closer to input data.
+
+* using minisom.MiniSom to implement Self Organizing Maps
+* using pylab.pcolor to plot the SOM grid. Able to visually detect outliers by seeing grid cells that are unlike surrounding cells.
+
+<h2Part 5 - Boltzmann Machines>/h2>
